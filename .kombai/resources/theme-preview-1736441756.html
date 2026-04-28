@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Website Theme Options - Professional & Trustworthy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Lato:wght@300;400;700&family=Source+Serif+4:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&family=Montserrat:wght@400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background: var(--background);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Theme Variables */
+        [data-theme="trusted-legacy"] {
+            /* Light Mode */
+            --background: #FAFBFC;
+            --foreground: #1A2332;
+            --card-bg: #FFFFFF;
+            --primary: #00416A;
+            --primary-hover: #003659;
+            --primary-foreground: #FFFFFF;
+            --secondary: #2774AE;
+            --secondary-hover: #216191;
+            --accent: #708090;
+            --muted: #F4F6F8;
+            --muted-foreground: #5A6C7D;
+            --border: #E1E8ED;
+            --shadow: rgba(0, 65, 106, 0.12);
+            --gradient-start: #F4F6F8;
+            --gradient-end: #E8EDF2;
+            
+            /* Typography */
+            --font-heading: 'Archivo', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --heading-weight: 700;
+            --body-weight: 400;
+        }
+
+        [data-theme="trusted-legacy"][data-mode="dark"] {
+            --background: #0A0F16;
+            --foreground: #E8EDF2;
+            --card-bg: #1A2332;
+            --primary: #4A9ACF;
+            --primary-hover: #2774AE;
+            --primary-foreground: #FFFFFF;
+            --secondary: #5BA3D0;
+            --secondary-hover: #4A9ACF;
+            --accent: #9FAAB5;
+            --muted: #1F2937;
+            --muted-foreground: #B7BFC8;
+            --border: #2D3748;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --gradient-start: #1A2332;
+            --gradient-end: #1F2937;
+        }
+
+        [data-theme="credible-foundation"] {
+            /* Light Mode */
+            --background: #FDFDFD;
+            --foreground: #1F2937;
+            --card-bg: #FFFFFF;
+            --primary: #708090;
+            --primary-hover: #5C6A78;
+            --primary-foreground: #FFFFFF;
+            --secondary: #2774AE;
+            --secondary-hover: #216191;
+            --accent: #00416A;
+            --muted: #F7F9FA;
+            --muted-foreground: #6B7280;
+            --border: #E5E7EB;
+            --shadow: rgba(112, 128, 144, 0.15);
+            --gradient-start: #F7F9FA;
+            --gradient-end: #EDF0F3;
+            
+            /* Typography */
+            --font-heading: 'Source Serif 4', serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            --heading-weight: 600;
+            --body-weight: 400;
+        }
+
+        [data-theme="credible-foundation"][data-mode="dark"] {
+            --background: #111827;
+            --foreground: #F3F4F6;
+            --card-bg: #1F2937;
+            --primary: #9FAAB5;
+            --primary-hover: #8795A3;
+            --primary-foreground: #111827;
+            --secondary: #4A9ACF;
+            --secondary-hover: #2774AE;
+            --accent: #5BA3D0;
+            --muted: #374151;
+            --muted-foreground: #D1D5DB;
+            --border: #4B5563;
+            --shadow: rgba(0, 0, 0, 0.4);
+            --gradient-start: #1F2937;
+            --gradient-end: #374151;
+        }
+
+        [data-theme="professional-impact"] {
+            /* Light Mode */
+            --background: #FCFCFD;
+            --foreground: #111827;
+            --card-bg: #FFFFFF;
+            --primary: #000080;
+            --primary-hover: #00006A;
+            --primary-foreground: #FFFFFF;
+            --secondary: #2774AE;
+            --secondary-hover: #216191;
+            --accent: #708090;
+            --muted: #F8F9FA;
+            --muted-foreground: #6B7280;
+            --border: #E5E7EB;
+            --shadow: rgba(0, 0, 128, 0.1);
+            --gradient-start: #F8F9FA;
+            --gradient-end: #EEF2F6;
+            
+            /* Typography */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Merriweather', serif;
+            --heading-weight: 700;
+            --body-weight: 400;
+        }
+
+        [data-theme="professional-impact"][data-mode="dark"] {
+            --background: #0F1419;
+            --foreground: #F9FAFB;
+            --card-bg: #1F2937;
+            --primary: #4D6FFF;
+            --primary-hover: #3D5FEF;
+            --primary-foreground: #FFFFFF;
+            --secondary: #5BA3D0;
+            --secondary-hover: #4A9ACF;
+            --accent: #9FAAB5;
+            --muted: #374151;
+            --muted-foreground: #D1D5DB;
+            --border: #4B5563;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --gradient-start: #1F2937;
+            --gradient-end: #2D3748;
+        }
+
+        /* Layout */
+        .theme-controls {
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--border);
+            padding: 1rem;
+            z-index: 100;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .theme-controls-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .theme-switcher {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .theme-btn {
+            padding: 0.625rem 1.25rem;
+            border: 2px solid var(--border);
+            background: var(--background);
+            color: var(--foreground);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            font-family: var(--font-heading);
+        }
+
+        .theme-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .theme-btn.active {
+            background: var(--primary);
+            color: var(--primary-foreground);
+            border-color: var(--primary);
+        }
+
+        .mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: var(--muted);
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .mode-toggle:hover {
+            border-color: var(--primary);
+        }
+
+        .toggle-switch {
+            width: 48px;
+            height: 24px;
+            background: var(--border);
+            border-radius: 12px;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s;
+        }
+
+        [data-mode="dark"] .toggle-switch {
+            background: var(--primary);
+        }
+
+        [data-mode="dark"] .toggle-switch::after {
+            transform: translateX(24px);
+        }
+
+        .theme-description {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .theme-description h2 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .theme-description p {
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            font-size: 1.125rem;
+            color: var(--foreground);
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .theme-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.375rem 0.875rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .preview-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--foreground);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-family: var(--font-body);
+            font-size: 1.25rem;
+            color: var(--foreground);
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--muted-foreground);
+        }
+
+        .trust-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-foreground);
+            font-size: 0.75rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--foreground);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        /* Impact Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 2.75rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: var(--font-body);
+            color: var(--muted-foreground);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        /* Financial Transparency */
+        .transparency-section {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .transparency-item {
+            text-align: center;
+        }
+
+        .transparency-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--muted);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
+        .transparency-item h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--foreground);
+        }
+
+        .transparency-item p {
+            font-family: var(--font-body);
+            color: var(--muted-foreground);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-content {
+            padding: 1.75rem;
+        }
+
+        .project-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--foreground);
+        }
+
+        .project-description {
+            font-family: var(--font-body);
+            color: var(--muted-foreground);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+        }
+
+        .project-meta-item {
+            color: var(--muted-foreground);
+        }
+
+        .project-meta-value {
+            font-weight: 600;
+            color: var(--foreground);
+        }
+
+        .project-progress {
+            margin-bottom: 1.25rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--muted);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .progress-text {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Certifications */
+        .certifications {
+            background: var(--muted);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .cert-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .cert-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            font-size: 0.75rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--muted-foreground);
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .newsletter h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .newsletter p {
+            font-family: var(--font-body);
+            color: var(--foreground);
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: var(--card-bg);
+            color: var(--foreground);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.625rem;
+        }
+
+        .footer-section a {
+            font-family: var(--font-body);
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-family: var(--font-body);
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .theme-controls-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .theme-switcher {
+                justify-content: center;
+            }
+
+            .trust-indicators {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="trusted-legacy" data-mode="light">
+    <!-- Theme Controls -->
+    <div class="theme-controls">
+        <div class="theme-controls-inner">
+            <div class="theme-switcher">
+                <button class="theme-btn active" data-theme="trusted-legacy">Option 1: Trusted Legacy</button>
+                <button class="theme-btn" data-theme="credible-foundation">Option 2: Credible Foundation</button>
+                <button class="theme-btn" data-theme="professional-impact">Option 3: Professional Impact</button>
+            </div>
+            <div class="mode-toggle">
+                <span id="mode-label">Light Mode</span>
+                <div class="toggle-switch"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Description -->
+    <div class="preview-content">
+        <div class="theme-description" id="theme-description">
+            <h2>Trusted Legacy Theme</h2>
+            <p>A professional and authoritative design built on Yale Blue's academic prestige and institutional trust. This theme conveys stability, integrity, and dependability - essential qualities for inspiring donor confidence.</p>
+            <p><strong>Font Pairing:</strong> Archivo (professional, authoritative headers) + Lato (warm yet professional body text)</p>
+            <p><strong>Color Strategy:</strong> Yale Blue primary establishes trust and prestige, Rich Cerulean secondary adds calm assurance, while Slate Grey accents provide stability and wisdom.</p>
+            <div class="theme-tags">
+                <span class="tag">Trustworthy</span>
+                <span class="tag">Professional</span>
+                <span class="tag">Credible</span>
+                <span class="tag">Institutional</span>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Building Trust Through Transparency</h1>
+            <p>Since 2015, we've been committed to making a measurable difference in communities worldwide. Every donation is tracked, every project is documented, and every impact is verified.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">View Our Annual Report</button>
+                <button class="btn btn-secondary">How We Use Donations</button>
+            </div>
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>Certified 501(c)(3)</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>95% to Programs</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>Independently Audited</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>10+ Years of Impact</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Stats -->
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-number">€2.4M</div>
+                <div class="stat-label">Total Funds Raised</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15,000+</div>
+                <div class="stat-label">Lives Directly Impacted</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">127</div>
+                <div class="stat-label">Completed Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Program Efficiency</div>
+            </div>
+        </section>
+
+        <!-- Financial Transparency -->
+        <section class="transparency-section">
+            <h2 class="section-title">Financial Transparency</h2>
+            <p class="section-subtitle">We believe in complete accountability. Here's how your donations are used.</p>
+            
+            <div class="transparency-grid">
+                <div class="transparency-item">
+                    <div class="transparency-icon">📊</div>
+                    <h4>95% to Programs</h4>
+                    <p>Direct program delivery and community impact initiatives that change lives.</p>
+                </div>
+                <div class="transparency-item">
+                    <div class="transparency-icon">🔍</div>
+                    <h4>Annual Audits</h4>
+                    <p>Independently audited financials published annually for complete transparency.</p>
+                </div>
+                <div class="transparency-item">
+                    <div class="transparency-icon">📈</div>
+                    <h4>Impact Reports</h4>
+                    <p>Detailed quarterly reports showing measurable outcomes and project progress.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section>
+            <h2 class="section-title">Current Initiatives</h2>
+            <p class="section-subtitle">Evidence-based programs delivering measurable community impact</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🏫</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Educational Infrastructure</h3>
+                        <p class="project-description">Constructing and equipping schools in underserved regions with modern educational facilities and resources.</p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">Start: <span class="project-meta-value">Jan 2024</span></div>
+                            <div class="project-meta-item">Beneficiaries: <span class="project-meta-value">2,400</span></div>
+                        </div>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%;"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span>€195,000 raised</span>
+                                <span>€250,000 goal</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">View Project Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🏥</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Healthcare Access Program</h3>
+                        <p class="project-description">Establishing medical clinics and providing essential healthcare services in remote communities.</p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">Start: <span class="project-meta-value">Mar 2024</span></div>
+                            <div class="project-meta-item">Beneficiaries: <span class="project-meta-value">5,200</span></div>
+                        </div>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 64%;"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span>€128,000 raised</span>
+                                <span>€200,000 goal</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">View Project Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">💧</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clean Water Initiative</h3>
+                        <p class="project-description">Installing water purification systems and wells to provide sustainable access to clean drinking water.</p>
+                        <div class="project-meta">
+                            <div class="project-meta-item">Start: <span class="project-meta-value">Feb 2024</span></div>
+                            <div class="project-meta-item">Beneficiaries: <span class="project-meta-value">8,500</span></div>
+                        </div>
+                        <div class="project-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%;"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span>€138,000 raised</span>
+                                <span>€150,000 goal</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">View Project Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="certifications">
+            <h3 class="section-title">Recognized & Certified</h3>
+            <p class="section-subtitle">Accredited by leading charity oversight organizations</p>
+            <div class="cert-logos">
+                <div class="cert-logo">GuideStar Platinum</div>
+                <div class="cert-logo">Charity Navigator 4-Star</div>
+                <div class="cert-logo">BBB Accredited</div>
+                <div class="cert-logo">ISO 9001 Certified</div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h3>Quarterly Impact Updates</h3>
+            <p>Receive detailed reports on our projects, financial transparency updates, and impact metrics</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Our Mission & Values</a></li>
+                    <li><a href="#">Leadership Team</a></li>
+                    <li><a href="#">Annual Reports</a></li>
+                    <li><a href="#">Financial Statements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#">Education Initiatives</a></li>
+                    <li><a href="#">Healthcare Projects</a></li>
+                    <li><a href="#">Infrastructure Development</a></li>
+                    <li><a href="#">Sustainable Agriculture</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Transparency</h4>
+                <ul>
+                    <li><a href="#">Financial Reports</a></li>
+                    <li><a href="#">Impact Metrics</a></li>
+                    <li><a href="#">Audit Reports</a></li>
+                    <li><a href="#">Tax Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get Involved</h4>
+                <ul>
+                    <li><a href="#">Make a Donation</a></li>
+                    <li><a href="#">Corporate Partnerships</a></li>
+                    <li><a href="#">Volunteer Opportunities</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Vereinshaus Nasira e.V. | Registered 501(c)(3) Nonprofit | Tax ID: XX-XXXXXXX</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeDescriptions = {
+            'trusted-legacy': {
+                title: 'Trusted Legacy Theme',
+                description: 'A professional and authoritative design built on Yale Blue\'s academic prestige and institutional trust. This theme conveys stability, integrity, and dependability - essential qualities for inspiring donor confidence.',
+                fonts: 'Archivo (professional, authoritative headers) + Lato (warm yet professional body text)',
+                strategy: 'Yale Blue primary establishes trust and prestige, Rich Cerulean secondary adds calm assurance, while Slate Grey accents provide stability and wisdom.',
+                tags: ['Trustworthy', 'Professional', 'Credible', 'Institutional']
+            },
+            'credible-foundation': {
+                title: 'Credible Foundation Theme',
+                description: 'An editorial and sophisticated design centered on Slate Grey\'s cool authority and balanced clarity. Perfect for charities emphasizing governance, accountability, and long-term sustainability.',
+                fonts: 'Source Serif 4 (editorial gravitas headers) + Source Sans 3 (modern, accessible body text)',
+                strategy: 'Slate Grey primary radiates wisdom and sophistication, Rich Cerulean secondary provides calm credibility, while Yale Blue accents add institutional depth.',
+                tags: ['Credible', 'Sophisticated', 'Balanced', 'Authoritative']
+            },
+            'professional-impact': {
+                title: 'Professional Impact Theme',
+                description: 'A strong and confident design leveraging Navy\'s timeless authority and formal trustworthiness. Ideal for established charities with proven track records and corporate partnerships.',
+                fonts: 'Montserrat (geometric precision headers) + Merriweather (readable, professional body text)',
+                strategy: 'Navy primary conveys unwavering stability and tradition, Rich Cerulean secondary adds modern professionalism, while Slate Grey accents ensure balanced formality.',
+                tags: ['Professional', 'Authoritative', 'Established', 'Corporate']
+            }
+        };
+
+        const body = document.body;
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        const modeToggle = document.querySelector('.mode-toggle');
+        const modeLabel = document.getElementById('mode-label');
+        const themeDescEl = document.getElementById('theme-description');
+
+        function updateThemeDescription(theme) {
+            const desc = themeDescriptions[theme];
+            themeDescEl.innerHTML = `
+                <h2>${desc.title}</h2>
+                <p>${desc.description}</p>
+                <p><strong>Font Pairing:</strong> ${desc.fonts}</p>
+                <p><strong>Color Strategy:</strong> ${desc.strategy}</p>
+                <div class="theme-tags">
+                    ${desc.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+            `;
+        }
+
+        themeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const theme = btn.dataset.theme;
+                body.dataset.theme = theme;
+                
+                themeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                updateThemeDescription(theme);
+            });
+        });
+
+        modeToggle.addEventListener('click', () => {
+            const currentMode = body.dataset.mode;
+            const newMode = currentMode === 'light' ? 'dark' : 'light';
+            body.dataset.mode = newMode;
+            modeLabel.textContent = newMode === 'light' ? 'Light Mode' : 'Dark Mode';
+        });
+    </script>
+</body>
+</html>

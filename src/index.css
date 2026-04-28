@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -44,6 +45,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Default to current theme */
 :root {
   --radius: 0.5rem;
   --background: #F8F9FA;
@@ -80,6 +82,93 @@
   --chart-3: #E67E22;
   --chart-4: #3498DB;
   --chart-5: #F4C430;
+  
+  --font-heading: system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, sans-serif;
+}
+
+/* Current Theme (Original Warm Colors) - same as default */
+:root[data-theme="current"] {
+  --radius: 0.5rem;
+  --background: #F8F9FA;
+  --foreground: #2C3E50;
+  --card: #FFFFFF;
+  --card-foreground: #2C3E50;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C3E50;
+  --primary: #C9A961;
+  --primary-foreground: #FFFFFF;
+  --secondary: #ECF0F1;
+  --secondary-foreground: #2C3E50;
+  --muted: #ECF0F1;
+  --muted-foreground: #7F8C8D;
+  --accent: #E67E22;
+  --accent-foreground: #FFFFFF;
+  --destructive: #E74C3C;
+  --border: #ECF0F1;
+  --input: #FFFFFF;
+  --ring: #C9A961;
+  --charity-gold: #C9A961;
+  --charity-gold-dark: #B08D45;
+  --charity-gold-light: #E5D4A8;
+  --charity-teal: #4DB8A8;
+  --charity-blue: #3498DB;
+  --charity-yellow: #F4C430;
+  --charity-orange: #E67E22;
+  --charity-red: #E74C3C;
+  --charity-dark: #2C3E50;
+  --charity-gray: #7F8C8D;
+  --charity-light-bg: #F8F9FA;
+  --chart-1: #C9A961;
+  --chart-2: #4DB8A8;
+  --chart-3: #E67E22;
+  --chart-4: #3498DB;
+  --chart-5: #F4C430;
+  
+  --font-heading: system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, sans-serif;
+}
+
+/* Trusted Legacy Theme (Professional Blues) */
+:root[data-theme="trusted-legacy"] {
+  --radius: 0.375rem;
+  --background: #FAFBFC;
+  --foreground: #1A2332;
+  --card: #FFFFFF;
+  --card-foreground: #1A2332;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A2332;
+  --primary: #00416A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2774AE;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F4F6F8;
+  --muted-foreground: #5A6C7D;
+  --accent: #2774AE;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --border: #E1E8ED;
+  --input: #FFFFFF;
+  --ring: #00416A;
+  --charity-gold: #00416A;
+  --charity-gold-dark: #003659;
+  --charity-gold-light: #4A9ACF;
+  --charity-teal: #2774AE;
+  --charity-blue: #2774AE;
+  --charity-yellow: #708090;
+  --charity-orange: #5BA3D0;
+  --charity-red: #DC2626;
+  --charity-dark: #1A2332;
+  --charity-gray: #708090;
+  --charity-light-bg: #FAFBFC;
+  --chart-1: #00416A;
+  --chart-2: #2774AE;
+  --chart-3: #5BA3D0;
+  --chart-4: #708090;
+  --chart-5: #9FAAB5;
+  
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Lato', sans-serif;
 }
 
 .dark {
@@ -135,10 +224,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
+    font-family: var(--font-heading);
   }
 }
 
@@ -176,4 +267,12 @@
 @utility body-base {
   font-size: 1rem;
   line-height: 1.65;
+}
+
+@utility scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

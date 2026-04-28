@@ -1,85 +1,128 @@
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { FileText, ExternalLink } from 'lucide-react'
+import { Button } from "@/components/ui/button";
+import { Download, ExternalLink, Mail, Phone } from "lucide-react";
+
+const PDF_URL =
+  "https://res.cloudinary.com/disaq3prz/image/upload/Pr%C3%A4sentation_Vereinshaus_Nasira_e._V._fquzkz.pdf";
 
 export default function JahresRuckblick() {
-  const handleViewPresentation = () => {
-    window.open('/flyers/jahres-ruckblick-2025.pdf', '_blank')
-  }
-
   return (
-    <div className="bg-white">
-      {/* Page Header */}
+    <div className="bg-background min-h-screen">
+      {/* ── Header ── */}
       <section className="py-16 bg-gradient-to-r from-charity-gold to-charity-gold-dark text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="heading-xl mb-4">Jahres Rückblick</h1>
-          <p className="body-lg text-white/90">
-            Unser Jahresrückblick 2025
+          <h1 className="heading-xl mb-3">Jahres Rückblick</h1>
+          <p className="body-lg text-white/85">
+            Vereinshaus Nasira e.V. – Präsentation 2025
           </p>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Main Presentation Card */}
-          <Card className="border-charity-gold/30 bg-gradient-to-br from-white to-charity-gold/5 shadow-lg overflow-hidden">
-            <div className="p-12 text-center">
-              <div className="w-24 h-24 bg-charity-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FileText className="w-12 h-12 text-charity-gold" />
-              </div>
-              
-              <h2 className="heading-lg text-charity-dark mb-4">
-                2025 Präsentation
-              </h2>
-              
-              <p className="body-base text-gray-700 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Entdecken Sie unsere Arbeit und Erfolge des Jahres 2025 in unserer ausführlichen Präsentation.
+      {/* ── Main Content ── */}
+      <section className="py-14 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Action bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 className="text-lg font-semibold text-charity-dark">Präsentation 2025</h2>
+              <p className="text-sm text-charity-gray mt-0.5">
+                Vereinshaus Nasira e.V. – Jahresrückblick
               </p>
-
-              <Button 
-                onClick={handleViewPresentation}
-                className="bg-charity-gold hover:bg-charity-gold-dark text-white px-8 py-6 text-base"
-              >
-                <ExternalLink className="w-5 h-5 mr-2" />
-                Präsentation ansehen
-              </Button>
             </div>
-          </Card>
+            <div className="flex gap-3">
+              <a href={PDF_URL} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="sm" className="border-charity-gold/40 text-charity-dark hover:bg-charity-gold/5 hover:border-charity-gold hover:text-charity-dark gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  Öffnen
+                </Button>
+              </a>
+              <a href={PDF_URL} download>
+                <Button size="sm" className="bg-charity-gold hover:bg-charity-gold-dark text-white gap-2">
+                  <Download className="w-4 h-4" />
+                  Herunterladen
+                </Button>
+              </a>
+            </div>
+          </div>
 
-          {/* Contact Info Card */}
-          <div className="mt-12">
-            <Card className="border-charity-gold/20 bg-white shadow-md">
-              <div className="p-8 text-center">
-                <h3 className="heading-sm text-charity-dark mb-3">
-                  Fragen zum Jahresrückblick?
-                </h3>
-                <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-                  Für weitere Informationen oder Rückfragen zu unserem Jahresrückblick 2025 
-                  kontaktieren Sie uns gerne.
-                </p>
-                <div className="flex flex-wrap justify-center gap-6">
-                  <a 
-                    href="mailto:info@vh-nasira.de" 
-                    className="inline-flex items-center text-charity-gold hover:text-charity-gold-dark transition-colors font-medium"
-                  >
-                    📧 info@vh-nasira.de
-                  </a>
-                  <span className="text-gray-300">|</span>
-                  <a 
-                    href="tel:015752053347" 
-                    className="inline-flex items-center text-charity-gold hover:text-charity-gold-dark transition-colors font-medium"
-                  >
-                    📞 015752053347
-                  </a>
-                </div>
+          {/* PDF Viewer */}
+          <div className="rounded-2xl overflow-hidden border border-charity-gold/15 shadow-xl bg-white">
+            {/* Viewer top bar */}
+            <div className="bg-gradient-to-r from-charity-gold/8 to-charity-gold/4 border-b border-charity-gold/15 px-5 py-3 flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-gray-200" />
+                <span className="w-3 h-3 rounded-full bg-gray-200" />
+                <span className="w-3 h-3 rounded-full bg-gray-200" />
               </div>
-            </Card>
+              <span className="text-xs text-charity-gray ml-2 truncate">
+                Präsentation_Vereinshaus_Nasira_e._V..pdf
+              </span>
+            </div>
+
+            {/* iframe */}
+            <iframe
+              src={PDF_URL}
+              title="Jahresrückblick 2025 – Vereinshaus Nasira e.V."
+              className="w-full"
+              style={{ height: "780px", border: "none" }}
+            />
+
+            {/* Fallback bar (shown when iframe can't display) */}
+            <noscript>
+              <div className="p-6 text-center text-charity-gray text-sm">
+                Ihr Browser unterstützt keine eingebetteten PDFs.{" "}
+                <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="text-charity-gold underline">
+                  Hier öffnen
+                </a>
+              </div>
+            </noscript>
+          </div>
+
+          {/* Mobile fallback note */}
+          <p className="text-xs text-charity-gray text-center mt-3">
+            Falls die Vorschau nicht geladen wird,{" "}
+            <a
+              href={PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-charity-gold underline underline-offset-2"
+            >
+              hier direkt öffnen
+            </a>
+            .
+          </p>
+
+          {/* ── Contact Card ── */}
+          <div className="mt-14 bg-white rounded-2xl border border-charity-gold/15 shadow-sm p-8">
+            <div className="text-center max-w-lg mx-auto">
+              <h3 className="heading-sm text-charity-dark mb-2">
+                Fragen zum Jahresrückblick?
+              </h3>
+              <p className="text-sm text-charity-gray mb-7">
+                Für weitere Informationen oder Rückfragen zu unserer Präsentation
+                stehen wir Ihnen gerne zur Verfügung.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="mailto:info@vh-nasira.de"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-charity-gold/8 text-charity-dark hover:bg-charity-gold/15 transition-colors text-sm font-medium"
+                >
+                  <Mail className="w-4 h-4 text-charity-gold" />
+                  info@vh-nasira.de
+                </a>
+                <a
+                  href="tel:015752053347"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-charity-gold/8 text-charity-dark hover:bg-charity-gold/15 transition-colors text-sm font-medium"
+                >
+                  <Phone className="w-4 h-4 text-charity-gold" />
+                  015752053347
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
       </section>
     </div>
-  )
+  );
 }

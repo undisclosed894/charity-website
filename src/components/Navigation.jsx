@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.jpg";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,33 +20,34 @@ export default function Navigation() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="bg-card shadow-sm sticky top-0 z-50 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-28">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img
               src={logo}
               alt="Vereinshaus Nasira Logo"
-              className="h-20 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(item.path)
-                    ? "bg-charity-gold text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/80 hover:bg-muted"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
@@ -64,7 +66,7 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t">
+        <div className="lg:hidden border-t border-border">
           <div className="px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -72,14 +74,17 @@ export default function Navigation() {
                 to={item.path}
                 className={`block px-4 py-3 rounded-md text-sm font-medium ${
                   isActive(item.path)
-                    ? "bg-charity-gold text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground/80 hover:bg-muted"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}

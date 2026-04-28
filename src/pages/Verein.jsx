@@ -1,44 +1,67 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { FileText, Download, FileCheck } from 'lucide-react'
+import { FileText, Download, Eye } from 'lucide-react'
 
 export default function Verein() {
   const documents = [
     {
       title: 'Vorstand',
       description: 'Offizielles Dokument zum Vorstand des Vereins',
-      filename: 'vorstand.pdf'
+      filename: 'vorstand.pdf',
+      viewOnly: true,
+      viewUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/1._Auszug_aus_dem_Handelsregister_ycnsql.pdf'
     },
     {
       title: 'Satzung',
       description: 'Vereinssatzung und Regelwerk',
-      filename: 'satzung.pdf'
+      filename: 'satzung.pdf',
+      viewOnly: true,
+      viewUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/2._Satzung_des_Vereins_Vereinshaus_Nasira_e._V._znffwg.pdf'
     },
     {
       title: 'Konzeption',
       description: 'Konzept und Ausrichtung des Vereins',
-      filename: 'konzeption.pdf'
+      filename: 'konzeption.pdf',
+      viewOnly: true,
+      viewUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/3._Konzeption_Vereinshaus_Nasira_e._V._pzuslj.pdf'
     },
     {
       title: 'Beitrittserklärung',
       description: 'Formular für die Mitgliedschaft',
-      filename: 'beitrittserklaerung.pdf'
+      filename: 'beitrittserklaerung.pdf',
+      downloadUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/4._Mitgliedschaftsvereinbarung_Vereinshaus_Nasira_e._V._ovqhbj.pdf'
     },
     {
       title: 'Spendenkonto',
       description: 'Kontoinformationen für Spenden',
-      filename: 'spendenkonto.pdf'
+      filename: 'spendenkonto.pdf',
+      downloadUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/5._Spendenkonto_Vereinshaus_Nasira_e._V._y8ww2u.pdf'
     },
     {
       title: 'Datenschutzvereinbarung',
       description: 'Datenschutzerklärung und Vereinbarungen',
-      filename: 'datenschutz.pdf'
+      filename: 'datenschutz.pdf',
+      downloadUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/6._Datenschutzklausel_Vereinshaus_Nasira_e._V._esibqj.pdf'
     }
   ]
 
-  const handleDownload = (filename) => {
-    // Placeholder for PDF download
-    alert(`PDF "${filename}" wird bereitgestellt. Bitte laden Sie die Datei hoch.`)
+  const handleDocumentAction = (doc) => {
+    if (doc.viewOnly) {
+      if (doc.viewUrl) {
+        window.open(doc.viewUrl, '_blank', 'noopener,noreferrer')
+      }
+      return
+    }
+
+    if (doc.downloadUrl) {
+      const link = document.createElement('a')
+      link.href = doc.downloadUrl
+      link.download = doc.filename
+      link.rel = 'noopener noreferrer'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
   }
 
   return (
@@ -77,36 +100,26 @@ export default function Verein() {
                 </CardHeader>
                 <CardContent>
                   <Button 
-                    onClick={() => handleDownload(doc.filename)}
+                    onClick={() => handleDocumentAction(doc)}
                     className="w-full bg-charity-gold hover:bg-charity-gold-dark text-white"
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Dokument herunterladen
+                    {doc.viewOnly ? (
+                      <>
+                        <Eye className="w-4 h-4 mr-2" />
+                        Ansehen
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4 mr-2" />
+                        Dokument herunterladen
+                      </>
+                    )}
                   </Button>
-                  <p className="text-xs text-charity-gray mt-2 text-center">
-                    PDF-Datei: {doc.filename}
-                  </p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Info Card */}
-          <div className="mt-12 max-w-2xl mx-auto">
-            <Card className="border-charity-gold/20 bg-white">
-              <CardContent className="p-6 text-center">
-                <p className="text-sm text-charity-gray">
-                  <strong className="text-charity-dark">Hinweis:</strong> Alle Dokumente stehen als PDF zum Download bereit. Bei Fragen wenden Sie sich bitte an{' '}
-                  <a 
-                    href="mailto:info@vh-nasira.de" 
-                    className="text-charity-gold hover:text-charity-gold-dark transition-colors"
-                  >
-                    info@vh-nasira.de
-                  </a>
-                </p>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
     </div>
