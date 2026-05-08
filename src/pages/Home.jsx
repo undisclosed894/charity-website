@@ -151,9 +151,7 @@ export default function Home() {
               Unsere Unterstützer
             </h2>
             <div className="w-20 h-1 bg-charity-gold mx-auto mb-6"></div>
-            <p className="text-gray-600">
-              Mit dankbarer Unterstützung unserer Partner
-            </p>
+            <p className="text-gray-600">Partner & Unterstützer</p>
           </div>
           {/* Supporters list */}
           <div className="flex flex-wrap justify-center items-center gap-12">

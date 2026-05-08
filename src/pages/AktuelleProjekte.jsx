@@ -1,54 +1,59 @@
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { ExternalLink } from 'lucide-react'
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 export default function AktuelleProjekte() {
   const projects = [
     {
-      title: 'Formularhilfe',
-      flyerUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/v1777296985/Flyer_Formularhilfe_tipgxi.jpg',
+      title: "Formularhilfe",
+      flyerUrl:
+        "https://res.cloudinary.com/disaq3prz/image/upload/v1777296985/Flyer_Formularhilfe_tipgxi.jpg",
       image: {
-        url: 'https://res.cloudinary.com/disaq3prz/image/upload/v1777296985/Flyer_Formularhilfe_tipgxi.jpg',
-        alt: 'Flyer Formularhilfe'
-      }
+        url: "https://res.cloudinary.com/disaq3prz/image/upload/v1777296985/Flyer_Formularhilfe_tipgxi.jpg",
+        alt: "Flyer Formularhilfe",
+      },
     },
     {
-      title: 'Frauentreff International',
-      flyerUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/v1777296856/Flyer_Frauentreff_International_ltp6t9.jpg',
+      title: "Frauentreff International",
+      flyerUrl:
+        "https://res.cloudinary.com/disaq3prz/image/upload/v1777296856/Flyer_Frauentreff_International_ltp6t9.jpg",
       image: {
-        url: 'https://res.cloudinary.com/disaq3prz/image/upload/v1777296856/Flyer_Frauentreff_International_ltp6t9.jpg',
-        alt: 'Flyer Frauentreff International'
-      }
+        url: "https://res.cloudinary.com/disaq3prz/image/upload/v1777296856/Flyer_Frauentreff_International_ltp6t9.jpg",
+        alt: "Flyer Frauentreff International",
+      },
     },
     {
-      title: 'Rechtsberatung',
-      flyerUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/v1777296848/Flyer_Rechtsberatung_c0cxxn.png',
+      title: "Rechtsberatung",
+      flyerUrl:
+        "https://res.cloudinary.com/disaq3prz/image/upload/v1777296848/Flyer_Rechtsberatung_c0cxxn.png",
       image: {
-        url: 'https://res.cloudinary.com/disaq3prz/image/upload/v1777296848/Flyer_Rechtsberatung_c0cxxn.png',
-        alt: 'Flyer Rechtsberatung'
-      }
+        url: "https://res.cloudinary.com/disaq3prz/image/upload/v1777296848/Flyer_Rechtsberatung_c0cxxn.png",
+        alt: "Flyer Rechtsberatung",
+      },
     },
     {
-      title: 'Lotsen Flyer Seite 1',
-      flyerUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_1_ef2tya.pdf',
+      title: "Lotsen Flyer Seite 1",
+      flyerUrl:
+        "https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_1_ef2tya.pdf",
       image: {
-        url: 'https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_1_ef2tya.jpg',
-        alt: 'Lotsen Flyer Seite 1'
-      }
+        url: "https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_1_ef2tya.jpg",
+        alt: "Lotsen Flyer Seite 1",
+      },
     },
     {
-      title: 'Lotsen Flyer Seite 2',
-      flyerUrl: 'https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_2_vxital.pdf',
+      title: "Lotsen Flyer Seite 2",
+      flyerUrl:
+        "https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_2_vxital.pdf",
       image: {
-        url: 'https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_2_vxital.jpg',
-        alt: 'Lotsen Flyer Seite 2'
-      }
-    }
-  ]
+        url: "https://res.cloudinary.com/disaq3prz/image/upload/Lotsen-Flyer_seite_2_vxital.jpg",
+        alt: "Lotsen Flyer Seite 2",
+      },
+    },
+  ];
 
   const handleViewFlyer = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer')
-  }
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="bg-white">
@@ -57,7 +62,8 @@ export default function AktuelleProjekte() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="heading-xl mb-4">Aktuelle Projekte</h1>
           <p className="body-lg text-white/90">
-            Unsere laufenden Projekte zur Unterstützung und Integration in der Gemeinschaft
+            Unsere laufenden Projekte zur Unterstützung und Integration in die
+            Gesellschaft
           </p>
         </div>
       </section>
@@ -68,8 +74,8 @@ export default function AktuelleProjekte() {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="overflow-hidden hover:shadow-xl transition-all duration-300 group border-0 shadow-md"
               >
                 {/* Image Section */}
@@ -109,5 +115,5 @@ export default function AktuelleProjekte() {
         </div>
       </section>
     </div>
-  )
+  );
 }

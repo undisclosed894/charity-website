@@ -1,11 +1,12 @@
-import { Card } from '@/components/ui/card'
+import { Card } from "@/components/ui/card";
 
 export default function GeplanteProjekte() {
-  const flyerUrl = 'https://res.cloudinary.com/disaq3prz/image/upload/v1777301509/Vereins-Flyer_Vereinshaus_Nasira_e._V._2_bnttum.png'
+  const flyerUrl =
+    "https://res.cloudinary.com/disaq3prz/image/upload/v1777301509/Vereins-Flyer_Vereinshaus_Nasira_e._V._2_bnttum.png";
 
   const handleViewFlyer = () => {
-    window.open(flyerUrl, '_blank', 'noopener,noreferrer')
-  }
+    window.open(flyerUrl, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="bg-white">
@@ -14,7 +15,8 @@ export default function GeplanteProjekte() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="heading-xl mb-4">Geplante Projekte</h1>
           <p className="body-lg text-white/90">
-            Unsere Vision für die Zukunft – kommende Initiativen zur Unterstützung der Gemeinschaft
+            Unsere Vision für die Zukunft – kommende Initiativen zur
+            Unterstützung der Gesellschaft
           </p>
         </div>
       </section>
@@ -38,5 +40,5 @@ export default function GeplanteProjekte() {
         </div>
       </section>
     </div>
-  )
+  );
 }

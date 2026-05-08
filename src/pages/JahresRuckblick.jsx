@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Download, ExternalLink, Mail, Phone } from "lucide-react";
+import { ExternalLink, Mail, Phone } from "lucide-react";
 
 const PDF_URL =
-  "https://res.cloudinary.com/disaq3prz/image/upload/Pr%C3%A4sentation_Vereinshaus_Nasira_e._V._fquzkz.pdf";
+  "https://res.cloudinary.com/disaq3prz/image/upload/v1778224888/Pra%CC%88sentation_Finale_Vereinshaus_Nasira_e._V._ylt7a6.pdf";
 
 export default function JahresRuckblick() {
   return (
@@ -20,26 +20,25 @@ export default function JahresRuckblick() {
       {/* ── Main Content ── */}
       <section className="py-14 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
           {/* Action bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div>
-              <h2 className="text-lg font-semibold text-charity-dark">Präsentation 2025</h2>
+              <h2 className="text-lg font-semibold text-charity-dark">
+                Präsentation 2025
+              </h2>
               <p className="text-sm text-charity-gray mt-0.5">
                 Vereinshaus Nasira e.V. – Jahresrückblick
               </p>
             </div>
             <div className="flex gap-3">
               <a href={PDF_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className="border-charity-gold/40 text-charity-dark hover:bg-charity-gold/5 hover:border-charity-gold hover:text-charity-dark gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-charity-gold/40 text-charity-dark hover:bg-charity-gold/5 hover:border-charity-gold hover:text-charity-dark gap-2"
+                >
                   <ExternalLink className="w-4 h-4" />
                   Öffnen
-                </Button>
-              </a>
-              <a href={PDF_URL} download>
-                <Button size="sm" className="bg-charity-gold hover:bg-charity-gold-dark text-white gap-2">
-                  <Download className="w-4 h-4" />
-                  Herunterladen
                 </Button>
               </a>
             </div>
@@ -71,7 +70,12 @@ export default function JahresRuckblick() {
             <noscript>
               <div className="p-6 text-center text-charity-gray text-sm">
                 Ihr Browser unterstützt keine eingebetteten PDFs.{" "}
-                <a href={PDF_URL} target="_blank" rel="noopener noreferrer" className="text-charity-gold underline">
+                <a
+                  href={PDF_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-charity-gold underline"
+                >
                   Hier öffnen
                 </a>
               </div>
@@ -99,8 +103,8 @@ export default function JahresRuckblick() {
                 Fragen zum Jahresrückblick?
               </h3>
               <p className="text-sm text-charity-gray mb-7">
-                Für weitere Informationen oder Rückfragen zu unserer Präsentation
-                stehen wir Ihnen gerne zur Verfügung.
+                Für weitere Informationen oder Rückfragen zu unserer
+                Präsentation stehen wir Ihnen gerne zur Verfügung.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
@@ -120,7 +124,6 @@ export default function JahresRuckblick() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </div>

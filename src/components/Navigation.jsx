@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo.jpg";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,7 +46,6 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
@@ -82,9 +80,6 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <div className="pt-2">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       )}
