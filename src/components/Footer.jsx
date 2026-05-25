@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
+const IMPRESSUM_PDF_URL =
+  "https://res.cloudinary.com/disaq3prz/image/upload/v1779699947/Impressum_1_alnip6.pdf";
+
 export default function Footer() {
   return (
     <footer className="bg-charity-dark">
@@ -205,8 +208,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Copyright & legal */}
         <div className="border-t border-white/10 pt-6 text-center">
+          <nav
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mb-4"
+            aria-label="Rechtliche Hinweise"
+          >
+            <a
+              href={IMPRESSUM_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-charity-gold transition-colors text-xs font-medium"
+            >
+              Impressum
+            </a>
+          </nav>
           <p className="text-white/60 text-xs">
             &copy; {new Date().getFullYear()} Vereinshaus Nasira e.V. · Alle
             Rechte vorbehalten
